@@ -15,9 +15,9 @@
  */
 
 ._c-site-branding__title {
-  font-family: serif;
+  font-family: 'Mplus 1p', sans-serif;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 20px;
   font-size: 1.25rem;
   line-height: 1.6;
@@ -25,4 +25,26 @@
     color: #333;
     text-decoration: none;
   }
+}
+
+.p-main-visual {
+  &__title {
+    font-family: 'Mplus 1p', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+  }
+  &__content {
+    font-family: 'Mplus 1p', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+  }
+  &__action {
+    font-family: 'Mplus 1p', sans-serif;
+  }
+}
+
+._c-navbar__item {
+  font-family: 'Mplus 1p', sans-serif;
+  font-style: normal;
+  font-weight: 400;
 }
