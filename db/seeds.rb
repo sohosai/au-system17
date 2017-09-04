@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+ReceptionDesk.create(name: "第一エリア案内所", location:"第一エリア")
+ReceptionDesk.create(name: "第二・三エリア案内所", location:"第二・三エリア")
+ReceptionDesk.create(name: "体芸エリア案内所", location:"体芸エリア")
+ReceptionDesk.create(name: "会館エリア案内所", location:"会館エリア")
