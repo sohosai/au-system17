@@ -1,0 +1,41 @@
+h1 Listing lost_items
+
+table
+  thead
+    tr
+      th Resolver
+      th Resolved at
+      th Reception desk
+      th Receptionist
+      th Name
+      th Kind
+      th Location lost
+      th Characteristic
+      th Loser name
+      th Loser name
+      th Note
+      th
+      th
+      th
+
+  tbody
+    - @lost_items.each do |lost_item|
+      tr
+        td = lost_item.resolver_id
+        td = lost_item.resolved_at
+        td = lost_item.reception_desk_id
+        td = lost_item.receptionist_id
+        td = lost_item.name
+        td = lost_item.kind
+        td = lost_item.location_lost
+        td = lost_item.characteristic
+        td = lost_item.loser_name
+        td = lost_item.loser_name
+        td = lost_item.note
+        td = link_to 'Show', lost_item
+        td = link_to 'Edit', edit_lost_item_path(lost_item)
+        td = link_to 'Destroy', lost_item, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Lost item', new_lost_item_path

@@ -1,0 +1,39 @@
+p#notice = notice
+
+p
+  strong Resolver:
+  = @lost_item.resolver_id
+p
+  strong Resolved at:
+  = @lost_item.resolved_at
+p
+  strong Reception desk:
+  = @lost_item.reception_desk_id
+p
+  strong Receptionist:
+  = @lost_item.receptionist_id
+p
+  strong Name:
+  = @lost_item.name
+p
+  strong Kind:
+  = @lost_item.kind
+p
+  strong Location lost:
+  = @lost_item.location_lost
+p
+  strong Characteristic:
+  = @lost_item.characteristic
+p
+  strong Loser name:
+  = @lost_item.loser_name
+p
+  strong Loser name:
+  = @lost_item.loser_name
+p
+  strong Note:
+  = @lost_item.note
+
+= link_to 'Edit', edit_lost_item_path(@lost_item)
+'  |
+= link_to 'Back', lost_items_path

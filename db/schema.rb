@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170904143855) do
+ActiveRecord::Schema.define(version: 20170904145054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,23 @@ ActiveRecord::Schema.define(version: 20170904143855) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["reception_desk_id"], name: "index_found_items_on_reception_desk_id"
+  end
+
+  create_table "lost_items", force: :cascade do |t|
+    t.integer "resolver_id"
+    t.datetime "resolved_at"
+    t.bigint "reception_desk_id"
+    t.integer "receptionist_id"
+    t.string "name"
+    t.integer "kind"
+    t.string "location_lost"
+    t.string "characteristic"
+    t.string "loser_name"
+    t.string "loser_contact"
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reception_desk_id"], name: "index_lost_items_on_reception_desk_id"
   end
 
   create_table "reception_desks", force: :cascade do |t|
@@ -58,4 +75,5 @@ ActiveRecord::Schema.define(version: 20170904143855) do
   end
 
   add_foreign_key "found_items", "reception_desks"
+  add_foreign_key "lost_items", "reception_desks"
 end

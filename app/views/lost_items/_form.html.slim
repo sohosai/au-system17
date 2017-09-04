@@ -1,0 +1,42 @@
+= form_for @lost_item do |f|
+  - if @lost_item.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@lost_item.errors.count, "error")} prohibited this lost_item from being saved:"
+      ul
+        - @lost_item.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :resolver_id
+    = f.number_field :resolver_id
+  .field
+    = f.label :resolved_at
+    = f.datetime_select :resolved_at
+  .field
+    = f.label :reception_desk_id
+    = f.number_field :reception_desk_id
+  .field
+    = f.label :receptionist_id
+    = f.number_field :receptionist_id
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :kind
+    = f.number_field :kind
+  .field
+    = f.label :location_lost
+    = f.text_field :location_lost
+  .field
+    = f.label :characteristic
+    = f.text_field :characteristic
+  .field
+    = f.label :loser_name
+    = f.text_field :loser_name
+  .field
+    = f.label :loser_name
+    = f.text_field :loser_name
+  .field
+    = f.label :note
+    = f.text_area :note
+  .actions = f.submit

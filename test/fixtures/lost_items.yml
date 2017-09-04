@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  resolver_id: 1
+  resolved_at: 2017-09-04 23:50:54
+  reception_desk_id: 1
+  receptionist_id: 1
+  name: MyString
+  kind: 1
+  location_lost: MyString
+  characteristic: MyString
+  loser_name: MyString
+  loser_name: MyString
+  note: MyText
+
+two:
+  resolver_id: 1
+  resolved_at: 2017-09-04 23:50:54
+  reception_desk_id: 1
+  receptionist_id: 1
+  name: MyString
+  kind: 1
+  location_lost: MyString
+  characteristic: MyString
+  loser_name: MyString
+  loser_name: MyString
+  note: MyText
