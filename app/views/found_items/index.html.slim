@@ -1,41 +1,26 @@
-h1 Listing found_items
-
-table
-  thead
-    tr
-      th Resolver
-      th Resolved at
-      th Reception desk
-      th Receptionist
-      th Name
-      th Item kind
-      th Location found
-      th Item characteristic
-      th Finder name
-      th Finder contact
-      th Note
-      th
-      th
-      th
-
-  tbody
-    - @found_items.each do |found_item|
-      tr
-        td = found_item.resolver_id
-        td = found_item.resolved_at
-        td = found_item.reception_desk_id
-        td = found_item.receptionist_id
-        td = found_item.name
-        td = found_item.item_kind
-        td = found_item.location_found
-        td = found_item.item_characteristic
-        td = found_item.finder_name
-        td = found_item.finder_contact
-        td = found_item.note
-        td = link_to 'Show', found_item
-        td = link_to 'Edit', edit_found_item_path(found_item)
-        td = link_to 'Destroy', found_item, data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
-= link_to 'New Found item', new_found_item_path
+section._c-section._c-section--bg
+  ._c-container
+    h2._c-section__title 拾得物一覧
+    ._c-section__content
+      ul._c-meta
+        li._c-meta__item #{@found_items.count}件の拾得物情報が見つかりました。
+      ._c-row._c-row--margin._c-row--md-fill
+        - @found_items.each do |found_item|
+          ._c-row__col._c-row__col--1-1._c-row__col--lg-1-3
+            section.p-vertical-media
+              .p-vertical-media__body
+                h1.p-vertical-media__title #{found_item.kind} #{found_item.name}
+                .p-vertical-media__lead = found_item.location_found
+                .p-vertical-media__content
+                  table
+                    tbody
+                      tr
+                        td 取扱案内所
+                        td = found_item.reception_desk_id
+                      tr
+                        td 特徴
+                        td = found_item.characteristic
+                  p = found_item.note
+                .p-vertical-media__action
+                  a._c-btn._c-btn--block href="#" さらに詳しく
+        = link_to 'New Found item', new_found_item_path
