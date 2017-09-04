@@ -1,4 +1,5 @@
 class FoundItem < ApplicationRecord
+  belongs_to :reception_desk
   validates :resolver_id, presence: true
   validates :reception_desk_id, presence: true
   validates :receptionist_id, presence: true
