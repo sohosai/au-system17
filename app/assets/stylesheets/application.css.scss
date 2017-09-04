@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+._c-site-branding__title {
+  font-family: serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  ._l-header & {
+    color: #333;
+    text-decoration: none;
+  }
+}
