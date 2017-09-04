@@ -1,0 +1,23 @@
+h1 Listing reception_desks
+
+table
+  thead
+    tr
+      th Name
+      th Location
+      th
+      th
+      th
+
+  tbody
+    - @reception_desks.each do |reception_desk|
+      tr
+        td = reception_desk.name
+        td = reception_desk.location
+        td = link_to 'Show', reception_desk
+        td = link_to 'Edit', edit_reception_desk_path(reception_desk)
+        td = link_to 'Destroy', reception_desk, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Reception desk', new_reception_desk_path

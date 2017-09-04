@@ -1,0 +1,2 @@
+class ReceptionDesk < ApplicationRecord
+end
