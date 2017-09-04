@@ -1,12 +1,13 @@
-p#notice = notice
+section._c-section
+  ._c-container
+    ._c-section__content
+      article._c-entry
+        header._c-entry__header
+          h1._c-entry__title = @reception_desk.name
+          ul._c-meta
+            li._c-meta__item Location: #{@reception_desk.location}
+        ._c-entry__content
 
-p
-  strong Name:
-  = @reception_desk.name
-p
-  strong Location:
-  = @reception_desk.location
-
-= link_to 'Edit', edit_reception_desk_path(@reception_desk)
-'  |
-= link_to 'Back', reception_desks_path
+      ul._c-navbar
+        li._c-navbar__item data-c="navbar__item" = link_to '更新する', edit_reception_desk_path(@reception_desk)
+        li._c-navbar__item data-c="navbar__item" = link_to '戻る', reception_desks_path
