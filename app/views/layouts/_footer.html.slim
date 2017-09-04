@@ -1,0 +1,37 @@
+footer#footer._l-footer data-l="footer"
+  ._c-container
+    ._c-row._c-row--margin
+      ._c-row__col._c-row__col--1-1._c-row__col--lg-2-4
+        ._c-site-branding
+          h1._c-site-branding__title au-system17
+      ._c-row__col._c-row__col--1-1._c-row__col--lg-2-4
+        nav.p-footer-nav
+          ._c-row._c-row--margin
+            ._c-row__col._c-row__col--1-1._c-row__col--md-1-3
+              ul.p-footer-nav__list
+                li.p-footer-nav__item
+                  - if user_signed_in?
+                    = link_to 'ログアウト', destroy_user_session_path
+                  - else
+                    = link_to 'ログイン', new_user_session_path
+                - if user_signed_in?
+                  li.p-footer-nav__item
+                    = link_to 'foo', root_path
+                  li.p-footer-nav__item
+                    = link_to 'bar', root_path
+            / admin area
+            ._c-row__col._c-row__col--1-1._c-row__col--md-1-3
+              ul.p-footer-nav__list
+                li.p-footer-nav__item
+                  = link_to 'hoge', root_path
+                li.p-footer-nav__item
+                  = link_to 'huga', root_path
+            ._c-row__col._c-row__col--1-1._c-row__col--md-1-3
+              ul.p-footer-nav__list
+                li.p-footer-nav__item
+                  = link_to 'foo', root_path
+                li.p-footer-nav__item
+                  = link_to 'bar', root_path
+  ._c-copyright
+    ._c-container
+      a href="/" &copy; au-system17

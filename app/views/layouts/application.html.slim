@@ -1,13 +1,49 @@
 doctype html
-html
+html lang="ja" data-sticky-footer="true" data-scrolled="true"
   head
+    meta charset="UTF-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     title AuSystem17
     = csrf_meta_tags
 
     = stylesheet_link_tag 'application', media: 'all'
+    link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
     = javascript_include_tag 'application'
 
-  body
-    p.notice = notice
-    p.alert = alert
-    = yield
+  body._l-body
+    = render partial: 'layouts/page_effect'
+  ._c-drawer data-c="drawer"
+    nav#drawer-nav._c-drawer__body._c-drawer__body--fixed data-c="drawer__body" role="navigation" aria-hidden="true"
+      ul._c-drawer__menu
+        li._c-drawer__item
+          = link_to 'ホーム', root_path
+
+
+    #container._l-container data-l="container"
+      header#header._l-header data-l="header" data-l-header-type="sticky" role="banner"
+        ._c-container
+          ._c-row._c-row--nowrap._c-row--lg-margin._c-row--middle
+            ._c-row__col._c-row__col--auto
+              ._c-site-branding
+                = link_to "au-system17", root_path, class: "_c-site-branding__title"
+
+            ._c-row__col._c-row__col--auto._u-hidden-sm._u-hidden-md
+              ._u-pull-right
+                nav.p-global-nav role="navigation"
+                  ul._c-navbar._c-navbar--auto
+                    li._c-navbar__item data-c="navbar__item"
+                      = link_to 'ホーム', root_path
+
+
+          = render partial: 'layouts/hamburger'
+
+      #contents._l-contents data-l="contents"
+        main#main._l-main role="main"
+        - unless notice.nil?
+          p._c-alert._c-alert--info = notice
+        - unless alert.nil?
+          p._c-alert._c-alert--danger = alert
+        = yield
+
+      = render partial: 'layouts/footer'
+  = javascript_include_tag "app.js"
