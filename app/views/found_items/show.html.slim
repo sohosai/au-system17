@@ -1,0 +1,39 @@
+p#notice = notice
+
+p
+  strong Resolver:
+  = @found_item.resolver_id
+p
+  strong Resolved at:
+  = @found_item.resolved_at
+p
+  strong Reception desk:
+  = @found_item.reception_desk_id
+p
+  strong Receptionist:
+  = @found_item.receptionist_id
+p
+  strong Name:
+  = @found_item.name
+p
+  strong Item kind:
+  = @found_item.item_kind
+p
+  strong Location found:
+  = @found_item.location_found
+p
+  strong Item characteristic:
+  = @found_item.item_characteristic
+p
+  strong Finder name:
+  = @found_item.finder_name
+p
+  strong Finder contact:
+  = @found_item.finder_contact
+p
+  strong Note:
+  = @found_item.note
+
+= link_to 'Edit', edit_found_item_path(@found_item)
+'  |
+= link_to 'Back', found_items_path

@@ -1,0 +1,42 @@
+= form_for @found_item do |f|
+  - if @found_item.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@found_item.errors.count, "error")} prohibited this found_item from being saved:"
+      ul
+        - @found_item.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :resolver_id
+    = f.number_field :resolver_id
+  .field
+    = f.label :resolved_at
+    = f.datetime_select :resolved_at
+  .field
+    = f.label :reception_desk_id
+    = f.number_field :reception_desk_id
+  .field
+    = f.label :receptionist_id
+    = f.number_field :receptionist_id
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :item_kind
+    = f.number_field :item_kind
+  .field
+    = f.label :location_found
+    = f.text_field :location_found
+  .field
+    = f.label :item_characteristic
+    = f.text_field :item_characteristic
+  .field
+    = f.label :finder_name
+    = f.text_field :finder_name
+  .field
+    = f.label :finder_contact
+    = f.text_field :finder_contact
+  .field
+    = f.label :note
+    = f.text_area :note
+  .actions = f.submit
