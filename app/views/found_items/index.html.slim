@@ -22,5 +22,5 @@ section._c-section._c-section--bg
                         td = found_item.characteristic
                   p = found_item.note
                 .p-vertical-media__action
-                  a._c-btn._c-btn--block href="#" さらに詳しく
+                  = link_to 'さらに詳しく', found_item,:class => '_c-btn _c-btn--block'
         = link_to 'New Found item', new_found_item_path
