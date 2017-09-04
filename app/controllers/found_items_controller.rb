@@ -54,6 +54,6 @@ class FoundItemsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def found_item_params
-      params.require(:found_item).permit(:resolver_id, :resolved_at, :reception_desk_id, :receptionist_id, :name, :item_kind, :location_found, :item_characteristic, :finder_name, :finder_contact, :note)
+      params.require(:found_item).permit(:resolver_id, :resolved_at, :reception_desk_id, :receptionist_id, :name, :kind, :location_found, :characteristic, :finder_name, :finder_contact, :note)
     end
 end
