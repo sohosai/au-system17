@@ -17,7 +17,11 @@ html lang="ja" data-sticky-footer="true" data-scrolled="true"
     nav#drawer-nav._c-drawer__body._c-drawer__body--fixed data-c="drawer__body" role="navigation" aria-hidden="true"
       ul._c-drawer__menu
         li._c-drawer__item
-          = link_to 'ホーム', root_path
+          = link_to '案内所一覧', reception_desks_path
+        li._c-drawer__item
+          = link_to '拾得物一覧', found_items_path
+        li._c-drawer__item
+          = link_to '紛失物一覧', lost_items_path
 
 
     #container._l-container data-l="container"
@@ -33,7 +37,11 @@ html lang="ja" data-sticky-footer="true" data-scrolled="true"
                 nav.p-global-nav role="navigation"
                   ul._c-navbar._c-navbar--auto
                     li._c-navbar__item data-c="navbar__item"
-                      = link_to 'ホーム', root_path
+                      = link_to '案内所一覧', reception_desks_path
+                    li._c-navbar__item data-c="navbar__item"
+                      = link_to '拾得物一覧', found_items_path
+                    li._c-navbar__item data-c="navbar__item"
+                      = link_to '紛失物一覧', lost_items_path
 
 
           = render partial: 'layouts/hamburger'
