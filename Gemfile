@@ -17,6 +17,8 @@ gem 'devise'
 gem 'date_validator'
 gem 'non-stupid-digest-assets'
 gem 'config'
+gem 'cancancan'
+gem 'rails_admin'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
