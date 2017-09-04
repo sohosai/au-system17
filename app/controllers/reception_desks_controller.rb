@@ -1,5 +1,6 @@
 class ReceptionDesksController < ApplicationController
   before_action :set_reception_desk, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :show, :new, :edit, :create, :update, :destroy]
 
   # GET /reception_desks
   def index

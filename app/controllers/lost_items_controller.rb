@@ -1,5 +1,6 @@
 class LostItemsController < ApplicationController
   before_action :set_lost_item, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :show, :new, :edit, :create, :update, :destroy]
 
   # GET /lost_items
   def index
