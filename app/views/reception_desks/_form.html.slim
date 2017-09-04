@@ -1,15 +1,21 @@
-= form_for @reception_desk do |f|
-  - if @reception_desk.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@reception_desk.errors.count, "error")} prohibited this reception_desk from being saved:"
-      ul
-        - @reception_desk.errors.full_messages.each do |message|
-          li = message
+._c-section__content
+  ._c-row._c-row--center
+    ._c-row__col._c-row__col--1-1._c-row__col--lg-1-2
+      = form_for @reception_desk do |f|
+        ._c-card
+          ._c-card__body
+            - if @reception_desk.errors.any?
+              h3 = "#{pluralize(@reception_desk.errors.count, "error")} prohibited this reception_desk from being saved:"
+              ul._c-meta
+                - @reception_desk.errors.full_messages.each do |message|
+                  li._c-meta__item = message
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :location
-    = f.text_field :location
-  .actions = f.submit
+            ._c-row__col._c-row__col--1-1
+              = f.label :name
+              br
+              = f.text_field :name, :class => "_c-form-control"
+            ._c-row__col._c-row__col--1-1
+              = f.label :location
+              br
+              = f.text_field :location, :class => "_c-form-control"
+          ._c-card__action = f.submit :class => "_c-btn _c-btn--block"
