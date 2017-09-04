@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170904143855) do
     t.string "name"
     t.integer "kind"
     t.string "location_found"
-    t.string "item_characteristic"
+    t.string "characteristic"
     t.string "finder_name"
     t.string "finder_contact"
     t.text "note"
