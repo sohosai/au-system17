@@ -236,3 +236,18 @@ ja:
       reception_desk:
         name: 案内所名
         location: 場所
+ja:
+  enums:
+    found_item:
+      kind:
+        other: その他
+        key: 鍵
+        wallet: 財布
+        mobile_phone: 携帯電話
+        cloth_product: 布製品
+        card: カード
+        cash: 現金
+        card_case: カードケース
+        keychain: キーホルダー
+        strap: ストラップ
+        umbrella: 傘
