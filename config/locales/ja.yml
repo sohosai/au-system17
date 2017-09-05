@@ -221,6 +221,7 @@ ja:
         finder_name: 拾得者名
         finder_contact: 拾得者連絡先
         note: 備考
+        status: 状態
       lost_item:
         resolver_id: 解決者名
         resolved_at: 解決時刻
