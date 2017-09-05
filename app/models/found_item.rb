@@ -7,8 +7,6 @@ class FoundItem < ApplicationRecord
   validates :kind, presence: true
   validates :location_found, presence: true
   validates :characteristic, presence: true
-  validates :finder_name, presence: true
-  validates :finder_contact, presence: true
   enum kind: {
       other: 0,
       key: 1,
