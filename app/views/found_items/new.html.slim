@@ -1,5 +1,8 @@
-h1 New found_item
+section._c-section._c-section--bg
+  ._c-container
+    h2._c-section__title 拾得物を登録する
+    == render 'form'
 
-== render 'form'
-
-= link_to 'Back', found_items_path
+    ul._c-navbar
+      li._c-navbar__item data-c="navbar__item"
+        = link_to '戻る', found_items_path
