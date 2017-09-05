@@ -35,7 +35,7 @@
             ._c-row__col._c-row__col--1-1
               = f.label :kind
               br
-              = f.number_field :kind, :class => "_c-form-control"
+              = f.select :kind, FoundItem.kinds_i18n.invert
             ._c-row__col._c-row__col--1-1
               = f.label :location_found
               br
