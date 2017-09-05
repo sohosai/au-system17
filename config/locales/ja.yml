@@ -236,7 +236,6 @@ ja:
       reception_desk:
         name: 案内所名
         location: 場所
-ja:
   enums:
     found_item:
       kind:
