@@ -11,13 +11,7 @@
                   - @found_item.errors.full_messages.each do |message|
                     li._c-meta__item = message
 
-            ._c-row__col._c-row__col--1-1
-              = f.label :resolver_id
-              br
-              = f.number_field :resolver_id, :class => "_c-form-control"
-            ._c-row__col._c-row__col--1-1
-              = f.label :resolved_at
-              = f.text_field :resolved_at, :class => "_c-form-control"
+
             ._c-row__col._c-row__col--1-1
               = f.label :reception_desk_id
               br
@@ -56,5 +50,23 @@
               = f.label :note
               br
               = f.text_area :note, :class => "_c-form-control"
+            hr
+            ._c-row__col._c-row__col--1-1
+              = f.label :resolver_id
+              br
+              = f.number_field :resolver_id, :class => "_c-form-control"
+            ._c-row__col._c-row__col--1-1
+              = f.label :status
+              br
+              label
+                span._c-radio>
+                  = f.radio_button :status, true, :name => "radio-inline"
+                  span._c-radio__control
+                | 解決
+              label
+                span._c-radio>
+                  = f.radio_button :status, false, :name => "radio-inline"
+                  span._c-radio__control
+                | 未解決
           ._c-card__action
             = f.submit :class => "_c-btn _c-btn--block"
