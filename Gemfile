@@ -20,6 +20,7 @@ gem 'non-stupid-digest-assets'
 gem 'config'
 gem 'cancancan'
 gem 'rails_admin'
+gem 'enum_help'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

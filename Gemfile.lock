@@ -77,6 +77,8 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.6.1)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -253,6 +255,7 @@ DEPENDENCIES
   config
   date_validator
   devise
+  enum_help
   jquery-rails
   jquery-ui-rails
   listen (>= 3.0.5, < 3.2)
