@@ -24,7 +24,8 @@ ja:
         sign_in_count: 
         unconfirmed_email: 
         unlock_token: "ロック解除用のトークン"
-        updated_at: 
+        updated_at:
+        name: "名前"
     models:
       user: "ユーザ"
   devise:
