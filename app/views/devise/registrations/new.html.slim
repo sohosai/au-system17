@@ -10,9 +10,14 @@ section._c-section._c-section--bg
                 = devise_error_messages!
 
                 ._c-row__col._c-row__col--1-1
+                  = f.label :name
+                  br
+                  = f.email_field :name, autofocus: true, :class => "_c-form-control"
+
+                ._c-row__col._c-row__col--1-1
                   = f.label :email
                   br
-                  = f.email_field :email, autofocus: true, :class => "_c-form-control"
+                  = f.email_field :email, :class => "_c-form-control"
 
                 ._c-row__col._c-row__col--1-1
                   = f.label :password
