@@ -21,27 +21,31 @@
             ._c-row__col._c-row__col--1-1
               = f.label :receptionist_id
               br
-              = f.number_field :receptionist_id, :class => "_c-form-control"
+              span._c-select data-c="select" aria-selected="false"
+                = f.collection_select :receptionist_id, User.all, :id, :name, {}, {}
+                span._c-select__label data-c="select__label"
             ._c-row__col._c-row__col--1-1
               = f.label :name
               br
-              = f.text_field :name, :class => "_c-form-control"
+              = f.text_field :name, :class => '_c-form-control'
             ._c-row__col._c-row__col--1-1
               = f.label :kind
               br
-              = f.select :kind, FoundItem.kinds_i18n.invert
+              span._c-select data-c="select" aria-selected="false"
+                = f.select :kind, FoundItem.kinds_i18n.invert
+                span._c-select__label data-c="select__label"
             ._c-row__col._c-row__col--1-1
               = f.label :location_found
               br
-              = f.text_field :location_found, :class => "_c-form-control"
+              = f.text_field :location_found, :class => '_c-form-control'
             ._c-row__col._c-row__col--1-1
               = f.label :characteristic
               br
-              = f.text_field :characteristic, :class => "_c-form-control"
+              = f.text_field :characteristic, :class => '_c-form-control'
             ._c-row__col._c-row__col--1-1
               = f.label :finder_name
               br
-              = f.text_field :finder_name, :class => "_c-form-control"
+              = f.text_field :finder_name, :class => '_c-form-control'
             ._c-row__col._c-row__col--1-1
               = f.label :finder_contact
               br
@@ -54,7 +58,9 @@
             ._c-row__col._c-row__col--1-1
               = f.label :resolver_id
               br
-              = f.number_field :resolver_id, :class => "_c-form-control"
+              span._c-select data-c="select" aria-selected="false"
+                = f.collection_select :resolver_id, User.all, :id, :name, {}, {}
+                span._c-select__label data-c="select__label"
             ._c-row__col._c-row__col--1-1
               = f.label :status
               br
