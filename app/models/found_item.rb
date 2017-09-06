@@ -23,10 +23,10 @@ class FoundItem < ApplicationRecord
   }
 
   def set_resolved_at
-    if self.status
-      self.resolved_at = Time.now
-    else
-      self.resolved_at = ''
-    end
+    self.resolved_at = if status
+                         Time.now
+                       else
+                         ''
+                       end
   end
 end
