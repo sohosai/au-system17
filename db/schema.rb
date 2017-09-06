@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906005025) do
+ActiveRecord::Schema.define(version: 20170906074147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,17 +18,17 @@ ActiveRecord::Schema.define(version: 20170906005025) do
   create_table "found_items", force: :cascade do |t|
     t.integer "resolver_id"
     t.datetime "resolved_at"
-    t.bigint "reception_desk_id"
-    t.integer "receptionist_id"
-    t.string "name"
-    t.string "location_found"
-    t.string "characteristic"
+    t.integer "reception_desk_id", null: false
+    t.integer "receptionist_id", null: false
+    t.string "name", null: false
+    t.string "location_found", null: false
+    t.string "characteristic", null: false
     t.string "finder_name"
     t.string "finder_contact"
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "kind"
+    t.integer "kind", default: 0, null: false
     t.boolean "status"
     t.index ["reception_desk_id"], name: "index_found_items_on_reception_desk_id"
   end
