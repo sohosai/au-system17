@@ -4,23 +4,22 @@ section._c-section._c-section--bg
     ._c-section__content
       ul._c-meta
         li._c-meta__item #{@found_items.count}件の拾得物情報が見つかりました。
-      ._c-row._c-row--margin._c-row--md-fill
+      ._c-row._c-row--margin
         - @found_items.each do |found_item|
-          ._c-row__col._c-row__col--1-1._c-row__col--lg-1-3
-            section.p-vertical-media
-              .p-vertical-media__body
-                h1.p-vertical-media__title #{found_item.kind} #{found_item.name}
-                .p-vertical-media__lead = found_item.location_found
-                .p-vertical-media__content
-                  table
-                    tbody
-                      tr
-                        td 取扱案内所
-                        td = found_item.reception_desk_id
-                      tr
-                        td 特徴
-                        td = found_item.characteristic
+          ._c-row__col._c-row__col--1-1._c-row__col--lg-1-4
+            ._c-card
+              ._c-card__body
+                h1 #{found_item.kind_i18n} #{found_item.name}
+                small = found_item.location_found
+                table
+                  tbody
+                    tr
+                      td 案内所
+                      td = link_to found_item.reception_desk.name, reception_desk_path(found_item.reception_desk.id)
+                    tr
+                      td 特徴
+                      td = found_item.characteristic
                   p = found_item.note
-                .p-vertical-media__action
-                  = link_to 'さらに詳しく', found_item,:class => '_c-btn _c-btn--block'
+              ._c-card__action
+                = link_to 'さらに詳しく', found_item,:class => '_c-btn _c-btn--block'
         = link_to 'New Found item', new_found_item_path
