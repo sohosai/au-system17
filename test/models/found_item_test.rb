@@ -19,4 +19,34 @@ class FoundItemTest < ActiveSupport::TestCase
   test 'should be valid' do
     assert @found_item.valid?
   end
+
+  test 'reception_desk_id should be present' do
+    @found_item.reception_desk_id = '     '
+    assert_not @found_item.valid?
+  end
+
+  test 'receptionist_id should be present' do
+    @found_item.receptionist_id = '     '
+    assert_not @found_item.valid?
+  end
+
+  test 'name should be present' do
+    @found_item.name = '     '
+    assert_not @found_item.valid?
+  end
+
+  test 'kind should be present' do
+    @found_item.kind = '     '
+    assert_not @found_item.valid?
+  end
+
+  test 'location_found should be present' do
+    @found_item.location_found = '     '
+    assert_not @found_item.valid?
+  end
+
+  test 'characteristic should be present' do
+    @found_item.characteristic = '     '
+    assert_not @found_item.valid?
+  end
 end
