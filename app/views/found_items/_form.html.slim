@@ -16,13 +16,13 @@
               = f.label :reception_desk_id
               br
               span._c-select data-c="select" aria-selected="false"
-                = f.collection_select :reception_desk_id, ReceptionDesk.all, :id, :name, {}, {}
+                = f.collection_select :reception_desk_id, ReceptionDesk.all, :id, :name
                 span._c-select__label data-c="select__label"
             ._c-row__col._c-row__col--1-1
               = f.label :receptionist_id
               br
               span._c-select data-c="select" aria-selected="false"
-                = f.collection_select :receptionist_id, User.all, :id, :name, {}, {}
+                = f.collection_select :receptionist_id, User.all, :id, :name, :selected => current_user.id
                 span._c-select__label data-c="select__label"
             ._c-row__col._c-row__col--1-1
               = f.label :name
@@ -59,7 +59,7 @@
               = f.label :resolver_id
               br
               span._c-select data-c="select" aria-selected="false"
-                = f.collection_select :resolver_id, User.all, :id, :name, {}, {}
+                = f.collection_select :resolver_id, User.all, :id, :name, :include_blank => true
                 span._c-select__label data-c="select__label"
             ._c-row__col._c-row__col--1-1
               = f.label :status
@@ -71,7 +71,7 @@
                 | 解決
               label
                 span._c-radio>
-                  = f.radio_button :status, false
+                  = f.radio_button :status, false, {:checked => true}
                   span._c-radio__control
                 | 未解決
           ._c-card__action
