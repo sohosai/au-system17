@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170907011627) do
+ActiveRecord::Schema.define(version: 20170907012926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,12 +36,12 @@ ActiveRecord::Schema.define(version: 20170907011627) do
   create_table "lost_items", force: :cascade do |t|
     t.integer "resolver_id"
     t.datetime "resolved_at"
-    t.bigint "reception_desk_id"
-    t.integer "receptionist_id"
-    t.string "name"
-    t.integer "kind"
-    t.string "location_lost"
-    t.string "characteristic"
+    t.integer "reception_desk_id", null: false
+    t.integer "receptionist_id", null: false
+    t.string "name", null: false
+    t.integer "kind", default: 0, null: false
+    t.string "location_lost", null: false
+    t.string "characteristic", null: false
     t.string "loser_name"
     t.string "loser_contact"
     t.text "note"
