@@ -6,19 +6,19 @@ section._c-section._c-section--bg
         header._c-entry__header
           h1._c-entry__title #{@found_item.kind_i18n} #{@found_item.name}
           ul._c-meta
-            li._c-meta__item 作成日時 #{@found_item.created_at.to_s(:db)}
+            li._c-meta__item 作成日時 #{@found_item.created_at.strftime("%Y/%m/%d %H:%M")}
             - unless @found_item.created_at == @found_item.updated_at
-              li._c-meta__item 更新日時 #{@found_item.updated_at.to_s(:db)}
+              li._c-meta__item 更新日時 #{@found_item.updated_at.strftime("%Y/%m/%d %H:%M")}
 
         ._c-entry__content
           - if @found_item.status?
             ._c-alert._c-alert--success
               strong この拾得物は解決済みです
               h3 = FoundItem.human_attribute_name('resolved_at')
-              p = @found_item.resolved_at
-              h3 = FoundItem.human_attribute_name('resolver_id')
-                - if User.find(@found_item.resolver_id)
-                  p = User.find(@found_item.resolver_id).name
+              p = @found_item.resolved_at.strftime("%Y/%m/%d %H:%M")
+              - if User.find(@found_item.resolver_id)
+                h3 = FoundItem.human_attribute_name('resolver_id')
+                p = User.find(@found_item.resolver_id).name
           - else
             ._c-alert._c-alert--danger
               p この拾得物は未解決です
