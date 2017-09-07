@@ -25,7 +25,7 @@ class FoundItemsController < ApplicationController
     @found_item = FoundItem.new(found_item_params)
 
     if @found_item.save
-      redirect_to @found_item, notice: 'Found item was successfully created.'
+      redirect_to @found_item, notice: "Found item was successfully created."
     else
       render :new
     end
@@ -34,7 +34,7 @@ class FoundItemsController < ApplicationController
   # PATCH/PUT /found_items/1
   def update
     if @found_item.update(found_item_params)
-      redirect_to @found_item, notice: 'Found item was successfully updated.'
+      redirect_to @found_item, notice: "Found item was successfully updated."
     else
       render :edit
     end
@@ -42,18 +42,19 @@ class FoundItemsController < ApplicationController
 
   # DELETE /found_items/1
   def destroy
-    @found_item.destroy
-    redirect_to found_items_url, notice: 'Found item was successfully destroyed.'
+    @found_item.destroy!
+    redirect_to found_items_url, notice: "Found item was successfully destroyed."
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_found_item
-    @found_item = FoundItem.find(params[:id])
-  end
 
-  # Only allow a trusted parameter "white list" through.
-  def found_item_params
-    params.require(:found_item).permit(:resolver_id, :reception_desk_id, :receptionist_id, :name, :kind, :location_found, :characteristic, :finder_name, :finder_contact, :note, :status)
-  end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_found_item
+      @found_item = FoundItem.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def found_item_params
+      params.require(:found_item).permit(:resolver_id, :reception_desk_id, :receptionist_id, :name, :kind, :location_found, :characteristic, :finder_name, :finder_contact, :note, :status)
+    end
 end

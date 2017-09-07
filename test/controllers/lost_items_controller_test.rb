@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class LostItemsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +16,7 @@ class LostItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create lost_item" do
-    assert_difference('LostItem.count') do
+    assert_difference("LostItem.count") do
       post lost_items_url, params: { lost_item: { characteristic: @lost_item.characteristic, kind: @lost_item.kind, location_lost: @lost_item.location_lost, loser_name: @lost_item.loser_name, loser_name: @lost_item.loser_name, name: @lost_item.name, note: @lost_item.note, reception_desk_id: @lost_item.reception_desk_id, receptionist_id: @lost_item.receptionist_id, resolved_at: @lost_item.resolved_at, resolver_id: @lost_item.resolver_id } }
     end
 
@@ -39,7 +39,7 @@ class LostItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy lost_item" do
-    assert_difference('LostItem.count', -1) do
+    assert_difference("LostItem.count", -1) do
       delete lost_item_url(@lost_item)
     end
 

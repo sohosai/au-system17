@@ -20,13 +20,13 @@ class LostItem < ApplicationRecord
     card_case: 8,
     keychain: 9,
     umbrella: 10,
-    glasses: 11
+    glasses: 11,
   }
   def set_resolved_at
     self.resolved_at = if status
                          Time.now
                        else
-                         ''
+                         ""
                        end
   end
 end

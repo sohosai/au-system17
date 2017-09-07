@@ -1,6 +1,6 @@
-require_relative 'boot'
+require_relative "boot"
 
-require 'rails/all'
+require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -15,9 +15,9 @@ module AuSystem17
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.default_locale = :ja
-    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
-      %Q(#{html_tag}).html_safe
+    config.action_view.field_error_proc = proc do |html_tag, _instance|
+      html_tag.to_s.html_safe
     end
-    config.time_zone = 'Tokyo'
+    config.time_zone = "Tokyo"
   end
 end

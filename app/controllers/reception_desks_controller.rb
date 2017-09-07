@@ -25,7 +25,7 @@ class ReceptionDesksController < ApplicationController
     @reception_desk = ReceptionDesk.new(reception_desk_params)
 
     if @reception_desk.save
-      redirect_to @reception_desk, notice: 'Reception desk was successfully created.'
+      redirect_to @reception_desk, notice: "Reception desk was successfully created."
     else
       render :new
     end
@@ -34,7 +34,7 @@ class ReceptionDesksController < ApplicationController
   # PATCH/PUT /reception_desks/1
   def update
     if @reception_desk.update(reception_desk_params)
-      redirect_to @reception_desk, notice: 'Reception desk was successfully updated.'
+      redirect_to @reception_desk, notice: "Reception desk was successfully updated."
     else
       render :edit
     end
@@ -42,11 +42,12 @@ class ReceptionDesksController < ApplicationController
 
   # DELETE /reception_desks/1
   def destroy
-    @reception_desk.destroy
-    redirect_to reception_desks_url, notice: 'Reception desk was successfully destroyed.'
+    @reception_desk.destroy!
+    redirect_to reception_desks_url, notice: "Reception desk was successfully destroyed."
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_reception_desk
       @reception_desk = ReceptionDesk.find(params[:id])

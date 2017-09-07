@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class FoundItemsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +16,7 @@ class FoundItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create found_item" do
-    assert_difference('FoundItem.count') do
+    assert_difference("FoundItem.count") do
       post found_items_url, params: { found_item: { finder_contact: @found_item.finder_contact, finder_name: @found_item.finder_name, item_characteristic: @found_item.item_characteristic, item_kind: @found_item.item_kind, location_found: @found_item.location_found, name: @found_item.name, note: @found_item.note, reception_desk_id: @found_item.reception_desk_id, receptionist_id: @found_item.receptionist_id, resolved_at: @found_item.resolved_at, resolver_id: @found_item.resolver_id } }
     end
 
@@ -39,7 +39,7 @@ class FoundItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy found_item" do
-    assert_difference('FoundItem.count', -1) do
+    assert_difference("FoundItem.count", -1) do
       delete found_item_url(@found_item)
     end
 

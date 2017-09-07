@@ -25,7 +25,7 @@ class LostItemsController < ApplicationController
     @lost_item = LostItem.new(lost_item_params)
 
     if @lost_item.save
-      redirect_to @lost_item, notice: 'Lost item was successfully created.'
+      redirect_to @lost_item, notice: "Lost item was successfully created."
     else
       render :new
     end
@@ -34,7 +34,7 @@ class LostItemsController < ApplicationController
   # PATCH/PUT /lost_items/1
   def update
     if @lost_item.update(lost_item_params)
-      redirect_to @lost_item, notice: 'Lost item was successfully updated.'
+      redirect_to @lost_item, notice: "Lost item was successfully updated."
     else
       render :edit
     end
@@ -42,11 +42,12 @@ class LostItemsController < ApplicationController
 
   # DELETE /lost_items/1
   def destroy
-    @lost_item.destroy
-    redirect_to lost_items_url, notice: 'Lost item was successfully destroyed.'
+    @lost_item.destroy!
+    redirect_to lost_items_url, notice: "Lost item was successfully destroyed."
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_lost_item
       @lost_item = LostItem.find(params[:id])
