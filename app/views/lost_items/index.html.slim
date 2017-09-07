@@ -1,41 +1,29 @@
-h1 Listing lost_items
-
-table
-  thead
-    tr
-      th Resolver
-      th Resolved at
-      th Reception desk
-      th Receptionist
-      th Name
-      th Kind
-      th Location lost
-      th Characteristic
-      th Loser name
-      th Loser name
-      th Note
-      th
-      th
-      th
-
-  tbody
-    - @lost_items.each do |lost_item|
-      tr
-        td = lost_item.resolver_id
-        td = lost_item.resolved_at
-        td = lost_item.reception_desk_id
-        td = lost_item.receptionist_id
-        td = lost_item.name
-        td = lost_item.kind
-        td = lost_item.location_lost
-        td = lost_item.characteristic
-        td = lost_item.loser_name
-        td = lost_item.loser_name
-        td = lost_item.note
-        td = link_to 'Show', lost_item
-        td = link_to 'Edit', edit_lost_item_path(lost_item)
-        td = link_to 'Destroy', lost_item, data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
-= link_to 'New Lost item', new_lost_item_path
+- provide(:title, '紛失物一覧')
+section._c-section._c-section--bg
+  ._c-container
+    h2._c-section__title 紛失物一覧
+    ._c-section__content
+      ul._c-meta
+        li._c-meta__item #{@lost_items.count}件の拾得物情報が見つかりました。
+      ._c-row._c-row--margin
+        - @lost_items.each do |lost_item|
+          ._c-row__col._c-row__col--1-1._c-row__col--lg-1-4
+            ._c-card
+              ._c-card__body
+                h1 #{lost_item.kind_i18n} #{lost_item.name}
+                small = lost_item.location_lost
+                table
+                  tbody
+                    tr
+                      td 案内所
+                      td = link_to lost_item.reception_desk.name, reception_desk_path(lost_item.reception_desk.id)
+                    tr
+                      td 特徴
+                      td = lost_item.characteristic
+                  p = lost_item.note
+              ._c-card__action
+                - if lost_item.status?
+                  = link_to 'さらに詳しく', lost_item, :class => '_c-btn _c-btn--block'
+                - else
+                  = link_to 'さらに詳しく', lost_item, :class => '_c-btn _c-btn--block _c-btn--danger'
+        = link_to '紛失物を登録する', new_lost_item_path
