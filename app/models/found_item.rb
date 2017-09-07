@@ -35,7 +35,7 @@ class FoundItem < ApplicationRecord
     if name.blank?
       all
     else
-      where(name: name)
+      where("name like '%" + name + "%'")
     end
   end
 
@@ -43,7 +43,7 @@ class FoundItem < ApplicationRecord
     if kind.blank?
       all
     else
-      where(kind: kind)
+      where("kind like '%" + kind + "%'")
     end
   end
 
@@ -51,7 +51,7 @@ class FoundItem < ApplicationRecord
     if characteristic.blank?
       all
     else
-      where(characteristic: characteristic)
+      where("characteristic like '%" + characteristic + "%'")
     end
   end
 
