@@ -40,6 +40,11 @@ class FoundItemTest < ActiveSupport::TestCase
     assert_not @found_item.valid?
   end
 
+  test 'status should be present' do
+    @found_item.status = nil
+    assert_not @found_item.valid?
+  end
+
   test 'location_found should be present' do
     @found_item.location_found = '     '
     assert_not @found_item.valid?
