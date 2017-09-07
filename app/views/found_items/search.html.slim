@@ -35,7 +35,7 @@ section._c-section._c-section--bg
       h2._c-section__title 拾得物一覧
       ._c-section__content
         ul._c-meta
-          - if @found_items.count == 0
+          - if @found_items.empty?
             li._c-meta__item 拾得物情報が見つかりませんでした。
           - else
             li._c-meta__item #{@found_items.count}件の拾得物情報が見つかりました。
