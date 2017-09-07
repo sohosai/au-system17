@@ -43,7 +43,7 @@ class FoundItem < ApplicationRecord
     if kind.blank?
       all
     else
-      where("kind like '%" + kind + "%'")
+      where(kind: kind)
     end
   end
 
