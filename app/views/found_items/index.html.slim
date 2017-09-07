@@ -21,5 +21,8 @@ section._c-section._c-section--bg
                       td = found_item.characteristic
                   p = found_item.note
               ._c-card__action
-                = link_to 'さらに詳しく', found_item,:class => '_c-btn _c-btn--block'
-        = link_to 'New Found item', new_found_item_path
+                - if found_item.status?
+                  = link_to 'さらに詳しく', found_item,:class => '_c-btn _c-btn--block'
+                - else
+                  = link_to 'さらに詳しく', found_item,:class => '_c-btn _c-btn--block _c-btn--danger'
+        = link_to '拾得物を登録する', new_found_item_path
