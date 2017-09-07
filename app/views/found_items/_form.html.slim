@@ -6,7 +6,7 @@
           ._c-card__body
             - if @found_item.errors.any?
               ._c-alert._c-alert--danger
-                h3 = "#{pluralize(@found_item.errors.count, "error")} prohibited this found_item from being saved:"
+                h3 エラー
                 ul._c-meta
                   - @found_item.errors.full_messages.each do |message|
                     li._c-meta__item = message
@@ -58,6 +58,8 @@
             ._c-row__col._c-row__col--1-1
               = f.label :resolver_id
               br
+              small 未解決の場合は空白を選択してください。
+              br
               span._c-select data-c="select" aria-selected="false"
                 = f.collection_select :resolver_id, User.all, :id, :name, :include_blank => true
                 span._c-select__label data-c="select__label"
@@ -68,10 +70,10 @@
                 span._c-radio>
                   = f.radio_button :status, true
                   span._c-radio__control
-                | 解決
+                | 解決済み
               label
                 span._c-radio>
-                  = f.radio_button :status, false, {:checked => true}
+                  = f.radio_button :status, false
                   span._c-radio__control
                 | 未解決
           ._c-card__action
