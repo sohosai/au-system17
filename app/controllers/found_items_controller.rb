@@ -46,6 +46,14 @@ class FoundItemsController < ApplicationController
     redirect_to found_items_url, notice: "Found item was successfully destroyed."
   end
 
+  def search
+    if params[:query].present?
+      @found_items = FoundItem.reception_desk(params[:query][:reception_desk_id]).
+                       item_name(params[:query][:name]).item_kind(params[:query][:kind]).
+                       item_characteristic(params[:query][:characteristic])
+    end
+  end
+
   private
 
     # Use callbacks to share common setup or constraints between actions.
@@ -55,6 +63,10 @@ class FoundItemsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def found_item_params
-      params.require(:found_item).permit(:resolver_id, :reception_desk_id, :receptionist_id, :name, :kind, :location_found, :characteristic, :finder_name, :finder_contact, :note, :status)
+      params.require(:found_item).permit(:resolver_id, :reception_desk_id,
+                                         :receptionist_id, :name,
+                                         :kind, :location_found,
+                                         :characteristic, :finder_name,
+                                         :finder_contact, :note, :status)
     end
 end
