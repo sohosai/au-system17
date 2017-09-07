@@ -6,7 +6,7 @@ footer#footer._l-footer data-l="footer"
           h1._c-site-branding__title au-system17
       ._c-row__col._c-row__col--1-1._c-row__col--lg-2-4
         nav.p-footer-nav
-          ._c-row._c-row--margin
+          ._c-row._c-row--margin._c-row--right
             ._c-row__col._c-row__col--1-1._c-row__col--md-1-3
               ul.p-footer-nav__list
                 li.p-footer-nav__item
@@ -20,19 +20,15 @@ footer#footer._l-footer data-l="footer"
                 - else
                   li.p-footer-nav__item
                     = link_to '新規登録', new_user_registration_path
-            / admin area
-            ._c-row__col._c-row__col--1-1._c-row__col--md-1-3
-              ul.p-footer-nav__list
-                li.p-footer-nav__item
-                  = link_to 'hoge', root_path
-                li.p-footer-nav__item
-                  = link_to 'huga', root_path
-            ._c-row__col._c-row__col--1-1._c-row__col--md-1-3
-              ul.p-footer-nav__list
-                li.p-footer-nav__item
-                  = link_to 'foo', root_path
-                li.p-footer-nav__item
-                  = link_to 'bar', root_path
+            - if user_signed_in?
+              ._c-row__col._c-row__col--1-1._c-row__col--md-1-3
+                ul.p-footer-nav__list
+                  li.p-footer-nav__item
+                    = link_to '案内所を登録する', new_reception_desk_path
+                  li.p-footer-nav__item
+                    = link_to '拾得物を登録する', new_found_item_path
+                  li.p-footer-nav__item
+                    = link_to '紛失物を登録する', new_lost_item_path
   ._c-copyright
     ._c-container
       a href="/" &copy; au-system17
