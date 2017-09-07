@@ -17,7 +17,8 @@ section._c-section._c-section--bg
               h3 = FoundItem.human_attribute_name('resolved_at')
               p = @found_item.resolved_at
               h3 = FoundItem.human_attribute_name('resolver_id')
-              p = User.find(@found_item.resolver_id).name
+                - if User.find(@found_item.resolver_id)
+                  p = User.find(@found_item.resolver_id).name
           - else
             ._c-alert._c-alert--danger
               p この拾得物は未解決です
