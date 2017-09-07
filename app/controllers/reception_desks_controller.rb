@@ -9,6 +9,8 @@ class ReceptionDesksController < ApplicationController
 
   # GET /reception_desks/1
   def show
+    @found_items = FoundItem.where(reception_desk_id: params[:id])
+    @lost_items = LostItem.where(reception_desk_id: params[:id])
   end
 
   # GET /reception_desks/new
