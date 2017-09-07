@@ -2,8 +2,7 @@ section._c-section
   ._c-container
     h2._c-section__title 案内所一覧
     ._c-section__content
-      - if user_signed_in? && current_user.admin_flg?
-        = link_to '新規案内所', new_reception_desk_path
+      = link_to '案内所を登録する', new_reception_desk_path
       - @reception_desks.each do |reception_desk|
         ._c-entry
           header._c-entry__header
@@ -11,7 +10,3 @@ section._c-section
               = link_to reception_desk.name , reception_desk
             ul._c-meta
               li._c-meta__item Location: #{reception_desk.location}
-          ._c-entry__content
-            - if user_signed_in? && current_user.admin_flg?
-              = link_to 'Edit', edit_reception_desk_path(reception_desk)
-              = link_to 'Destroy', reception_desk, data: { confirm: 'Are you sure?' }, method:  :delete
