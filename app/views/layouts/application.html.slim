@@ -3,7 +3,7 @@ html lang="ja" data-sticky-footer="true" data-scrolled="true"
   head
     meta charset="UTF-8"
     meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-    title AuSystem17
+    title = full_title(yield(:title))
     = csrf_meta_tags
 
     = stylesheet_link_tag 'application', media: 'all'
