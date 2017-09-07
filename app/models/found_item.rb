@@ -25,7 +25,7 @@ class FoundItem < ApplicationRecord
 
   def set_resolved_at
     self.resolved_at = if status
-                         Time.now
+                         Time.now.utc
                        else
                          ""
                        end
