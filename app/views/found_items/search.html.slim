@@ -1,38 +1,39 @@
-section._c-section._c-section--bg
-  ._c-container
-    h2._c-section__title 拾得物を検索する
-    ._c-section__content
-      ._c-row._c-row--center
-        ._c-row__col._c-row__col--1-2
-          = form_tag(found_items_search_path, method: "post") do
-            ._c-card
-              ._c-card__body
-                ._c-row__col._c-row__col--1-1
-                  = label_tag :reception_desk_id
-                  br
-                    span._c-select data-c="select" aria-selected="false"
-                      = collection_select :query, :reception_desk_id, ReceptionDesk.all, :id, :name, :include_blank => true
-                      span._c-select__label data-c="select__label"
-                ._c-row__col._c-row__col--1-1
-                  = label_tag :characteristic
-                  br
-                    = text_field_tag 'query[characteristic]', "", :class => '_c-form-control'
-                ._c-row__col._c-row__col--1-1
-                  = label_tag :kind
-                  br
-                  span._c-select data-c="select" aria-selected="false"
-                    = select_tag 'query[kind]', options_for_select(FoundItem.kinds_i18n.invert), :include_blank => true
-                    span._c-select__label data-c="select__label"
-                ._c-row__col._c-row__col--1-1
-                  = label_tag :note
-                  br
-                    = text_field_tag 'query[note]', "", :class => '_c-form-control'
-              ._c-card__action
-                = submit_tag '検索', :class => "_c-btn _c-btn--block"
-- unless @found_items.nil?
+- if @found_items.nil?
   section._c-section._c-section--bg
     ._c-container
-      h2._c-section__title 拾得物一覧
+      h2._c-section__title 拾得物検索
+      ._c-section__content
+        ._c-row._c-row--center
+          ._c-row__col._c-row__col--1-2
+            = form_tag(found_items_search_path, method: "post") do
+              ._c-card
+                ._c-card__body
+                  ._c-row__col._c-row__col--1-1
+                    = label_tag :reception_desk_id, "受付案内所"
+                    br
+                      span._c-select data-c="select" aria-selected="false"
+                        = collection_select :query, :reception_desk_id, ReceptionDesk.all, :id, :name, :include_blank => true
+                        span._c-select__label data-c="select__label"
+                  ._c-row__col._c-row__col--1-1
+                    = label_tag :characteristic, "特徴"
+                    br
+                      = text_field_tag 'query[characteristic]', "", :class => '_c-form-control'
+                  ._c-row__col._c-row__col--1-1
+                    = label_tag :kind, "種別"
+                    br
+                    span._c-select data-c="select" aria-selected="false"
+                      = select_tag 'query[kind]', options_for_select(FoundItem.kinds_i18n.invert), :include_blank => true
+                      span._c-select__label data-c="select__label"
+                  ._c-row__col._c-row__col--1-1
+                    = label_tag :note, "備考"
+                    br
+                      = text_field_tag 'query[note]', "", :class => '_c-form-control'
+                ._c-card__action
+                  = submit_tag '検索', :class => "_c-btn _c-btn--block"
+- else
+  section._c-section._c-section--bg
+    ._c-container
+      h2._c-section__title 検索結果
       ._c-section__content
         ul._c-meta
           - if @found_items.empty?
