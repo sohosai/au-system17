@@ -25,10 +25,6 @@
                 = f.collection_select :receptionist_id, User.all, :id, :name, :selected => current_user.id
                 span._c-select__label data-c="select__label"
             ._c-row__col._c-row__col--1-1
-              = f.label :name
-              br
-              = f.text_field :name, :class => '_c-form-control'
-            ._c-row__col._c-row__col--1-1
               = f.label :kind
               br
               span._c-select data-c="select" aria-selected="false"
