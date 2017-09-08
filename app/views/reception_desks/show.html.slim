@@ -7,6 +7,9 @@ section._c-section
           ul._c-meta
             li._c-meta__item Location: #{@reception_desk.location}
         ._c-entry__content
+          ul._c-navbar
+            li._c-navbar__item data-c="navbar__item" = link_to '更新する', edit_reception_desk_path(@reception_desk)
+            li._c-navbar__item data-c="navbar__item" = link_to '案内所一覧', reception_desks_path
           ._c-row._c-row--margin
             ._c-row__col._c-row__col--1-1._c-row__col--md-1-2
               h2._c-section__title._u-text-left 拾得物
@@ -16,7 +19,7 @@ section._c-section
                     ._c-row__col._c-row__col--1-1
                       ._c-card
                         ._c-card__body
-                          h1 #{found_item.kind_i18n} #{found_item.name}
+                          h1 #{found_item.kind_i18n}
                           small = found_item.location_found
                           table
                             tbody
@@ -39,11 +42,11 @@ section._c-section
               h2._c-section__title._u-text-left 紛失物
               ._c-row._c-row--margin
                 - unless @lost_items.empty?
-                  - @lost_item.each do |lost_item|
+                  - @lost_items.each do |lost_item|
                     ._c-row__col._c-row__col--1-1
                       ._c-card
                         ._c-card__body
-                          h1 #{lost_item.kind_i18n} #{lost_item.name}
+                          h1 #{lost_item.kind_i18n}
                           small = lost_item.location_lost
                           table
                             tbody
@@ -63,6 +66,3 @@ section._c-section
                   p 登録されていません
 
 
-      ul._c-navbar
-        li._c-navbar__item data-c="navbar__item" = link_to '更新する', edit_reception_desk_path(@reception_desk)
-        li._c-navbar__item data-c="navbar__item" = link_to '戻る', reception_desks_path
