@@ -47,10 +47,9 @@ class FoundItemsController < ApplicationController
   end
 
   def search
-    if params[:query].present?
-      @found_items = FoundItem.reception_desk(params[:query][:reception_desk_id]).
-                       item_name(params[:query][:name]).item_kind(params[:query][:kind]).
-                       item_characteristic(params[:query][:characteristic])
+    @search = FoundItem.ransack(params[:q])
+    if params[:q]
+      @found_items = @search.result
     end
   end
 
