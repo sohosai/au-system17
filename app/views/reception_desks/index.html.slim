@@ -3,7 +3,10 @@ section._c-section
   ._c-container
     h2._c-section__title 案内所一覧
     ._c-section__content
-      = link_to '案内所を登録する', new_reception_desk_path
+      ul._c-navbar
+        li._c-navbar__item data-c="navbar__item"
+          = link_to '案内所を登録する', new_reception_desk_path
+
       - @reception_desks.each do |reception_desk|
         ._c-entry
           header._c-entry__header
