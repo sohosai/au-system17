@@ -1,39 +1,45 @@
-p#notice = notice
+- provide(:title, '紛失物情報')
+section._c-section._c-section--bg
+  ._c-container
+    h2._c-section__title 紛失物情報
+    ._c-section__content
+      article._c-entry
+        header._c-entry__header
+          h1._c-entry__title #{@lost_item.kind_i18n}
+          ul._c-meta
+            li._c-meta__item 作成日時 #{@lost_item.created_at.strftime("%Y/%m/%d %H:%M")}
+            - unless @lost_item.created_at == @lost_item.updated_at
+              li._c-meta__item 更新日時 #{@lost_item.updated_at.strftime("%Y/%m/%d %H:%M")}
 
-p
-  strong Resolver:
-  = @lost_item.resolver_id
-p
-  strong Resolved at:
-  = @lost_item.resolved_at
-p
-  strong Reception desk:
-  = @lost_item.reception_desk_id
-p
-  strong Receptionist:
-  = @lost_item.receptionist_id
-p
-  strong Name:
-  = @lost_item.name
-p
-  strong Kind:
-  = @lost_item.kind
-p
-  strong Location lost:
-  = @lost_item.location_lost
-p
-  strong Characteristic:
-  = @lost_item.characteristic
-p
-  strong Loser name:
-  = @lost_item.loser_name
-p
-  strong Loser name:
-  = @lost_item.loser_name
-p
-  strong Note:
-  = @lost_item.note
+        ._c-entry__content
+          - if @lost_item.status?
+            ._c-alert._c-alert--success
+              strong この紛失物は解決済みです
+              h3 = FoundItem.human_attribute_name('resolved_at')
+              p = @lost_item.resolved_at.strftime("%Y/%m/%d %H:%M")
+              - if User.find(@lost_item.resolver_id)
+                h3 = FoundItem.human_attribute_name('resolver_id')
+                p = User.find(@lost_item.resolver_id).name
+          - else
+            ._c-alert._c-alert--danger
+              p この紛失物は未解決です
+          h2 = FoundItem.human_attribute_name('reception_desk_id')
+          p = ReceptionDesk.find(@lost_item.reception_desk_id).name
+          h2 = FoundItem.human_attribute_name('receptionist_id')
+          p = User.find(@lost_item.receptionist_id).name
+          h2 = FoundItem.human_attribute_name('location_lost')
+          p = @lost_item.location_lost
+          h2 = FoundItem.human_attribute_name('characteristic')
+          p = @lost_item.characteristic
+          h2 = FoundItem.human_attribute_name('finder_name')
+          p = @lost_item.loser_name
+          h2 = FoundItem.human_attribute_name('finder_contact')
+          p = @lost_item.loser_contact
+          h2 = FoundItem.human_attribute_name('note')
+          p = @lost_item.note
 
-= link_to 'Edit', edit_lost_item_path(@lost_item)
-'  |
-= link_to 'Back', lost_items_path
+    ul._c-navbar
+      li._c-navbar__item data-c="navbar__item"
+        = link_to '編集', edit_lost_item_path(@lost_item)
+      li._c-navbar__item data-c="navbar__item"
+        = link_to '戻る', lost_items_path
