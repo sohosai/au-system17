@@ -18,6 +18,7 @@ gem "pg", "~> 0.18"
 gem "puma", "~> 3.7"
 gem "rails", "~> 5.1.3"
 gem "rails_admin"
+gem "ransack"
 gem "sass-rails", "~> 5.0"
 gem "slim-rails"
 
