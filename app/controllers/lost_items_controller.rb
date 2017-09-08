@@ -46,6 +46,13 @@ class LostItemsController < ApplicationController
     redirect_to lost_items_url, notice: "Lost item was successfully destroyed."
   end
 
+  def search
+    @search = LostItem.ransack(params[:q])
+    if params[:q]
+      @lost_items = @search.result
+    end
+  end
+
   private
 
     # Use callbacks to share common setup or constraints between actions.
