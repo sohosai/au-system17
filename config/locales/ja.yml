@@ -252,6 +252,20 @@ ja:
         keychain: キーホルダー #9
         umbrella: 傘 #10
         glasses: 眼鏡 #11
+    lost_item:
+      kind:
+        other: その他 #0
+        key: 鍵 #1
+        wallet: 財布 #2
+        mobile_phone: 携帯電話 #3
+        electronic_device: 電子機器 #4
+        clothes: 布製品 #5
+        card: カード #6
+        cash: 現金 #7
+        card_case: カードケース #8
+        keychain: キーホルダー #9
+        umbrella: 傘 #10
+        glasses: 眼鏡 #11
   admin:
     js:
       true: True
