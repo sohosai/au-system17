@@ -15,27 +15,27 @@ section._c-section._c-section--bg
           - if @lost_item.status?
             ._c-alert._c-alert--success
               strong この紛失物は解決済みです
-              h3 = FoundItem.human_attribute_name('resolved_at')
+              h3 = LostItem.human_attribute_name('resolved_at')
               p = @lost_item.resolved_at.strftime("%Y/%m/%d %H:%M")
               - if User.find(@lost_item.resolver_id)
-                h3 = FoundItem.human_attribute_name('resolver_id')
+                h3 = LostItem.human_attribute_name('resolver_id')
                 p = User.find(@lost_item.resolver_id).name
           - else
             ._c-alert._c-alert--danger
               p この紛失物は未解決です
-          h2 = FoundItem.human_attribute_name('reception_desk_id')
+          h2 = LostItem.human_attribute_name('reception_desk_id')
           p = ReceptionDesk.find(@lost_item.reception_desk_id).name
-          h2 = FoundItem.human_attribute_name('receptionist_id')
+          h2 = LostItem.human_attribute_name('receptionist_id')
           p = User.find(@lost_item.receptionist_id).name
-          h2 = FoundItem.human_attribute_name('location_lost')
+          h2 = LostItem.human_attribute_name('location_lost')
           p = @lost_item.location_lost
-          h2 = FoundItem.human_attribute_name('characteristic')
+          h2 = LostItem.human_attribute_name('characteristic')
           p = @lost_item.characteristic
-          h2 = FoundItem.human_attribute_name('finder_name')
+          h2 = LostItem.human_attribute_name('loser_name')
           p = @lost_item.loser_name
-          h2 = FoundItem.human_attribute_name('finder_contact')
+          h2 = LostItem.human_attribute_name('loser_contact')
           p = @lost_item.loser_contact
-          h2 = FoundItem.human_attribute_name('note')
+          h2 = LostItem.human_attribute_name('note')
           p = @lost_item.note
 
     ul._c-navbar
