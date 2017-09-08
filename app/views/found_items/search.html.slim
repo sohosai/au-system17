@@ -6,31 +6,31 @@
       ._c-section__content
         ._c-row._c-row--center
           ._c-row__col._c-row__col--1-2
-            = form_tag(found_items_search_path, method: "post") do
+            = search_form_for @search, url: found_items_search_path, html: {method: :post}  do |f|
               ._c-card
                 ._c-card__body
                   ._c-row__col._c-row__col--1-1
-                    = label_tag :reception_desk_id, "受付案内所"
+                    = f.label :reception_desk_id_eq, "受付案内所"
                     br
                       span._c-select data-c="select" aria-selected="false"
-                        = collection_select :query, :reception_desk_id, ReceptionDesk.all, :id, :name, :include_blank => true
+                        = f.collection_select :reception_desk_id_eq, ReceptionDesk.all, :id, :name, :include_blank => true
                         span._c-select__label data-c="select__label"
                   ._c-row__col._c-row__col--1-1
-                    = label_tag :characteristic, "特徴"
+                    = f.label :characteristic_cont, "特徴"
                     br
-                      = text_field_tag 'query[characteristic]', "", :class => '_c-form-control'
+                      = f.search_field :characteristic_cont, :class => '_c-form-control'
                   ._c-row__col._c-row__col--1-1
-                    = label_tag :kind, "種別"
+                    = f.label :kind_eq, "種別"
                     br
                     span._c-select data-c="select" aria-selected="false"
-                      = select_tag 'query[kind]', options_for_select(FoundItem.kinds_i18n.invert), :include_blank => true
+                      = f.select :kind_eq, FoundItem.kinds_i18n.invert.map {|key, value| [key, FoundItem.kinds[value]]}, :include_blank => true
                       span._c-select__label data-c="select__label"
                   ._c-row__col._c-row__col--1-1
-                    = label_tag :note, "備考"
+                    = f.label :note_cont, "備考"
                     br
-                      = text_field_tag 'query[note]', "", :class => '_c-form-control'
+                      = f.search_field :note_cont, :class => '_c-form-control'
                 ._c-card__action
-                  = submit_tag '検索', :class => "_c-btn _c-btn--block"
+                  = f.submit '検索', :class => "_c-btn _c-btn--block"
 - else
   section._c-section._c-section--bg
     ._c-container
@@ -62,3 +62,7 @@
                     = link_to 'さらに詳しく', found_item, :class => '_c-btn _c-btn--block'
                   - else
                     = link_to 'さらに詳しく', found_item, :class => '_c-btn _c-btn--block _c-btn--danger'
+        ._c-row._c-row--margin
+          ._c-row__col._c-row__col--1-1
+            ul._c-navbar
+              li._c-navbar__item data-c="navbar__item" = link_to "再検索", found_items_search_path
