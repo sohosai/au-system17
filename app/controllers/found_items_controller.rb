@@ -1,6 +1,6 @@
 class FoundItemsController < ApplicationController
   before_action :set_found_item, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:index, :show, :new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :show, :new, :edit, :create, :update, :destroy, :search]
 
   # GET /found_items
   def index
