@@ -55,6 +55,10 @@ class LostItemsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def lost_item_params
-      params.require(:lost_item).permit(:resolver_id, :resolved_at, :reception_desk_id, :receptionist_id, :name, :kind, :location_lost, :characteristic, :loser_name, :loser_name, :note)
+      params.require(:lost_item).permit(:resolver_id, :reception_desk_id,
+                                        :receptionist_id, :kind,
+                                        :location_lost, :characteristic,
+                                        :loser_name, :loser_name,
+                                        :note, :status)
     end
 end
