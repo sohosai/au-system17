@@ -4,13 +4,13 @@ section._c-section._c-section--bg
     h2._c-section__title 紛失物一覧
     ._c-section__content
       ul._c-meta
-        li._c-meta__item #{@lost_items.count}件の拾得物情報が見つかりました。
+        li._c-meta__item #{@lost_items.count}件の紛失物情報が見つかりました。
       ._c-row._c-row--margin
         - @lost_items.each do |lost_item|
           ._c-row__col._c-row__col--1-1._c-row__col--lg-1-4
             ._c-card
               ._c-card__body
-                h1 #{lost_item.kind_i18n} #{lost_item.name}
+                h1 #{lost_item.kind_i18n}
                 small = lost_item.location_lost
                 table
                   tbody
