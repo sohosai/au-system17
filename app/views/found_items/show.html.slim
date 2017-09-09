@@ -4,7 +4,7 @@ section._c-section._c-section--bg
     ._c-section__content
       article._c-entry
         header._c-entry__header
-          h1._c-entry__title #{@found_item.kind_i18n} #{@found_item.name}
+          h1._c-entry__title #{@found_item.kind_i18n}
           ul._c-meta
             li._c-meta__item 作成日時 #{@found_item.created_at.strftime("%Y/%m/%d %H:%M")}
             - unless @found_item.created_at == @found_item.updated_at
