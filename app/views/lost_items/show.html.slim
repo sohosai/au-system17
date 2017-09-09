@@ -31,12 +31,15 @@ section._c-section._c-section--bg
           p = @lost_item.location_lost
           h2 = LostItem.human_attribute_name('characteristic')
           p = @lost_item.characteristic
-          h2 = LostItem.human_attribute_name('loser_name')
-          p = @lost_item.loser_name
-          h2 = LostItem.human_attribute_name('loser_contact')
-          p = @lost_item.loser_contact
-          h2 = LostItem.human_attribute_name('note')
-          p = @lost_item.note
+          - unless @lost_item.loser_name.blank?
+            h2 = LostItem.human_attribute_name('loser_name')
+            p = @lost_item.loser_name
+          - unless @lost_item.loser_contact.blank?
+            h2 = LostItem.human_attribute_name('loser_contact')
+            p = @lost_item.loser_contact
+          - unless @lost_item.note.blank?
+            h2 = LostItem.human_attribute_name('note')
+            p = @lost_item.note
 
     ul._c-navbar
       li._c-navbar__item data-c="navbar__item"
