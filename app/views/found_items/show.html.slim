@@ -4,7 +4,7 @@ section._c-section._c-section--bg
     ._c-section__content
       article._c-entry
         header._c-entry__header
-          h1._c-entry__title #{@found_item.kind_i18n} #{@found_item.name}
+          h1._c-entry__title #{@found_item.kind_i18n}
           ul._c-meta
             li._c-meta__item 作成日時 #{@found_item.created_at.strftime("%Y/%m/%d %H:%M")}
             - unless @found_item.created_at == @found_item.updated_at
@@ -30,12 +30,15 @@ section._c-section._c-section--bg
           p = @found_item.location_found
           h2 = FoundItem.human_attribute_name('characteristic')
           p = @found_item.characteristic
-          h2 = FoundItem.human_attribute_name('finder_name')
-          p = @found_item.finder_name
-          h2 = FoundItem.human_attribute_name('finder_contact')
-          p = @found_item.finder_contact
-          h2 = FoundItem.human_attribute_name('note')
-          p = @found_item.note
+          - unless @found_item.finder_name.blank?
+            h2 = FoundItem.human_attribute_name('finder_name')
+            p = @found_item.finder_name
+          - unless @found_item.finder_contact.blank?
+            h2 = FoundItem.human_attribute_name('finder_contact')
+            p = @found_item.finder_contact
+          - unless @found_item.note.blank?
+            h2 = FoundItem.human_attribute_name('note')
+            p = @found_item.note
 
     ul._c-navbar
       li._c-navbar__item data-c="navbar__item"
