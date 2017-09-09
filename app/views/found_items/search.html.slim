@@ -10,6 +10,19 @@
               ._c-card
                 ._c-card__body
                   ._c-row__col._c-row__col--1-1
+                    = f.label :status_eq, "状態"
+                    br
+                    label
+                      span._c-radio>
+                        = f.radio_button :status_eq, true
+                        span._c-radio__control
+                      | 解決済み
+                    label
+                      span._c-radio>
+                        = f.radio_button :status_eq, false
+                        span._c-radio__control
+                      | 未解決
+                  ._c-row__col._c-row__col--1-1
                     = f.label :reception_desk_id_eq, "受付案内所"
                     br
                       span._c-select data-c="select" aria-selected="false"
