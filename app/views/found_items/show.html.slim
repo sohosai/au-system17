@@ -30,12 +30,15 @@ section._c-section._c-section--bg
           p = @found_item.location_found
           h2 = FoundItem.human_attribute_name('characteristic')
           p = @found_item.characteristic
-          h2 = FoundItem.human_attribute_name('finder_name')
-          p = @found_item.finder_name
-          h2 = FoundItem.human_attribute_name('finder_contact')
-          p = @found_item.finder_contact
-          h2 = FoundItem.human_attribute_name('note')
-          p = @found_item.note
+          - unless @found_item.finder_name.blank?
+            h2 = FoundItem.human_attribute_name('finder_name')
+            p = @found_item.finder_name
+          - unless @found_item.finder_contact.blank?
+            h2 = FoundItem.human_attribute_name('finder_contact')
+            p = @found_item.finder_contact
+          - unless @found_item.note.blank?
+            h2 = FoundItem.human_attribute_name('note')
+            p = @found_item.note
 
     ul._c-navbar
       li._c-navbar__item data-c="navbar__item"
