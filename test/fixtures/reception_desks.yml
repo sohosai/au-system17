@@ -1,8 +1,9 @@
 one:
+  id: 1
   name: 第一エリア案内所
   location: 第一エリア
 
 two:
+  id: 2
   name: 第二・三エリア案内所
   location: 第二・三エリア
-
