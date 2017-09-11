@@ -1,4 +1,5 @@
 one:
+  id: 1
   resolver_id: 1
   reception_desk_id: 1
   receptionist_id: 1
@@ -8,4 +9,4 @@ one:
   loser_contact: 000-000-000
   note: test note
   kind: 0
-  status: true
+  status: false
