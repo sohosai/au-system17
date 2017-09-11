@@ -4,6 +4,7 @@ class LostItemsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   setup do
     @lost_item = lost_items(:one)
+    @reception_desk = reception_desks(:one)
     @user = users(:john)
     sign_in(@user)
   end
@@ -28,7 +29,6 @@ class LostItemsControllerTest < ActionDispatch::IntegrationTest
                                                   note: @lost_item.note,
                                                   reception_desk_id: @lost_item.reception_desk_id,
                                                   receptionist_id: @lost_item.receptionist_id,
-                                                  resolved_at: @lost_item.resolved_at,
                                                   resolver_id: @lost_item.resolver_id } }
     end
 
@@ -54,7 +54,6 @@ class LostItemsControllerTest < ActionDispatch::IntegrationTest
                                                             note: @lost_item.note,
                                                             reception_desk_id: @lost_item.reception_desk_id,
                                                             receptionist_id: @lost_item.receptionist_id,
-                                                            resolved_at: @lost_item.resolved_at,
                                                             resolver_id: @lost_item.resolver_id } }
     assert_redirected_to lost_item_url(@lost_item)
   end
