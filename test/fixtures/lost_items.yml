@@ -1,0 +1,12 @@
+one:
+  id: 1
+  resolver_id: 1
+  reception_desk_id: 1
+  receptionist_id: 1
+  location_lost: test
+  characteristic: characteristic
+  loser_name: test finder name
+  loser_contact: 000-000-000
+  note: test note
+  kind: 0
+  status: false

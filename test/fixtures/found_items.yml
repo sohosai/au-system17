@@ -1,0 +1,13 @@
+one:
+  id: 1
+  resolver_id: 1
+  resolved_at: 2017-09-04 23:50:54
+  reception_desk_id: 1
+  receptionist_id: 1
+  location_found: test
+  characteristic: characteristic
+  finder_name: test finder name
+  finder_contact: 000-000-000
+  note: test note
+  kind: 0
+  status: true

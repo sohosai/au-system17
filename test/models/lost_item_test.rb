@@ -7,7 +7,6 @@ class LostItemTest < ActiveSupport::TestCase
     @lost_item = LostItem.new(resolver_id: @user.id,
                               reception_desk_id: @reception_desks.id,
                               receptionist_id: @user.id,
-                              name: "test",
                               location_lost: "test",
                               characteristic: "test characteristic",
                               loser_name: "test finder name",
@@ -28,11 +27,6 @@ class LostItemTest < ActiveSupport::TestCase
 
   test "receptionist_id should be present" do
     @lost_item.receptionist_id = "     "
-    assert_not @lost_item.valid?
-  end
-
-  test "name should be present" do
-    @lost_item.name = "     "
     assert_not @lost_item.valid?
   end
 

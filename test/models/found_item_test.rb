@@ -7,7 +7,6 @@ class FoundItemTest < ActiveSupport::TestCase
     @found_item = FoundItem.new(resolver_id: @user.id,
                                 reception_desk_id: @reception_desks.id,
                                 receptionist_id: @user.id,
-                                name: "test",
                                 location_found: "test",
                                 characteristic: "test characteristic",
                                 finder_name: "test finder name",
@@ -27,11 +26,6 @@ class FoundItemTest < ActiveSupport::TestCase
 
   test "receptionist_id should be present" do
     @found_item.receptionist_id = "     "
-    assert_not @found_item.valid?
-  end
-
-  test "name should be present" do
-    @found_item.name = "     "
     assert_not @found_item.valid?
   end
 
