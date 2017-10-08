@@ -11,7 +11,6 @@
                   - @lost_item.errors.full_messages.each do |message|
                     li._c-meta__item = message
 
-
             ._c-row__col._c-row__col--1-1
               = f.label :reception_desk_id
               br
@@ -22,7 +21,10 @@
               = f.label :receptionist_id
               br
               span._c-select data-c="select" aria-selected="false"
-                = f.collection_select :receptionist_id, User.all, :id, :name, :selected => current_user.id
+                - if :receptionist_id.blank?
+                  = f.collection_select :receptionist_id, User.all, :id, :name, :selected => current_user.id
+                - else
+                  = f.collection_select :receptionist_id, User.all, :id, :name
                 span._c-select__label data-c="select__label"
             ._c-row__col._c-row__col--1-1
               = f.label :kind
