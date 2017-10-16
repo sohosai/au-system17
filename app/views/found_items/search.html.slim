@@ -29,15 +29,15 @@
                         = f.collection_select :reception_desk_id_eq, ReceptionDesk.all, :id, :name, :include_blank => true
                         span._c-select__label data-c="select__label"
                   ._c-row__col._c-row__col--1-1
-                    = f.label :characteristic_cont, "特徴"
-                    br
-                      = f.search_field :characteristic_cont, :class => '_c-form-control'
-                  ._c-row__col._c-row__col--1-1
                     = f.label :kind_eq, "種別"
                     br
                     span._c-select data-c="select" aria-selected="false"
                       = f.select :kind_eq, FoundItem.kinds_i18n.invert.map {|key, value| [key, FoundItem.kinds[value]]}, :include_blank => true
                       span._c-select__label data-c="select__label"
+                  ._c-row__col._c-row__col--1-1
+                    = f.label :characteristic_cont, "特徴"
+                    br
+                      = f.search_field :characteristic_cont, :class => '_c-form-control'
                   ._c-row__col._c-row__col--1-1
                     = f.label :note_cont, "備考"
                     br
