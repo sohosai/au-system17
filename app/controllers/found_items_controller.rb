@@ -49,6 +49,11 @@ class FoundItemsController < ApplicationController
   def search
     @search = FoundItem.ransack(params[:q])
     if params[:q]
+      characteristics = params[:q][:characteristic_cont_all].split(/[\p{blank}\s]+/)
+      params[:q][:characteristic_cont_all] = characteristics if characteristics
+      notes = params[:q][:note_cont_all].split(/[\p{blank}\s]+/)
+      params[:q][:note_cont_all] = notes if notes
+      @search = FoundItem.ransack(params[:q])
       @found_items = @search.result
     end
   end
