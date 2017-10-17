@@ -35,13 +35,13 @@
                       = f.select :kind_eq, LostItem.kinds_i18n.invert.map {|key, value| [key, FoundItem.kinds[value]]}, :include_blank => true
                       span._c-select__label data-c="select__label"
                   ._c-row__col._c-row__col--1-1
-                    = f.label :characteristic_cont, "特徴"
+                    = f.label :characteristic_cont_all, "特徴"
                     br
-                      = f.search_field :characteristic_cont, :class => '_c-form-control'
+                      = f.search_field :characteristic_cont_all, :class => '_c-form-control'
                   ._c-row__col._c-row__col--1-1
-                    = f.label :note_cont, "備考"
+                    = f.label :note_cont_all, "備考"
                     br
-                      = f.search_field :note_cont, :class => '_c-form-control'
+                      = f.search_field :note_cont_all, :class => '_c-form-control'
                 ._c-card__action
                   = f.submit '検索', :class => "_c-btn _c-btn--block"
 - else
