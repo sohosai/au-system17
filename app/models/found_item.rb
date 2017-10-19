@@ -7,6 +7,7 @@ class FoundItem < ApplicationRecord
   validates :location_found, presence: true
   validates :characteristic, presence: true
   validates :status, inclusion: { in: [true, false] }
+  validate :check_resolver_id
   enum kind: {
     other: 0,
     key: 1,
@@ -28,5 +29,11 @@ class FoundItem < ApplicationRecord
                        else
                          ""
                        end
+  end
+
+  def check_resolver_id
+    if self.status && !self.resolver_id
+      errors.add(:resolver_id, "を入力してください")
+    end
   end
 end
