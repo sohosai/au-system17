@@ -53,7 +53,7 @@ class LostItemsController < ApplicationController
       params[:q][:characteristic_cont_all] = characteristics if characteristics
       notes = params[:q][:note_cont_all].split(/[\p{blank}\s]+/)
       params[:q][:note_cont_all] = notes if notes
-      @search = FoundItem.ransack(params[:q])
+      @search = LostItem.ransack(params[:q])
       @lost_items = @search.result
     end
   end
