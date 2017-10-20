@@ -54,6 +54,8 @@
             li._c-meta__item 拾得物情報が見つかりませんでした。
           - else
             li._c-meta__item #{@found_items.count}件の拾得物情報が見つかりました。
+        ul._c-navbar
+          li._c-navbar__item data-c="navbar__item" = link_to "再検索", found_items_search_path
         ._c-row._c-row--margin
           - @found_items.each do |found_item|
             ._c-row__col._c-row__col--1-1._c-row__col--lg-1-4
@@ -75,7 +77,5 @@
                     = link_to 'さらに詳しく', found_item, :class => '_c-btn _c-btn--block'
                   - else
                     = link_to 'さらに詳しく', found_item, :class => '_c-btn _c-btn--block _c-btn--danger'
-        ._c-row._c-row--margin
-          ._c-row__col._c-row__col--1-1
-            ul._c-navbar
-              li._c-navbar__item data-c="navbar__item" = link_to "再検索", found_items_search_path
+        ul._c-navbar
+          li._c-navbar__item data-c="navbar__item" = link_to "再検索", found_items_search_path
