@@ -1,4 +1,52 @@
-- provide(:title, '紛失物一覧')
+- provide(:title, '紛失物')
+section._c-section._c-section--bg
+  ._c-container
+    h2._c-section__title 紛失物を登録する
+    == render 'form'
+section._c-section._c-section--bg
+  ._c-container
+    h2._c-section__title 紛失物検索
+    ._c-section__content
+      ._c-row._c-row--center
+        ._c-row__col._c-row__col--1-2
+          = search_form_for @search, url: lost_items_path do |f|
+            ._c-card
+              ._c-card__body
+                ._c-row__col._c-row__col--1-1
+                  = f.label :status_eq, "状態"
+                  br
+                  label
+                    span._c-radio>
+                      = f.radio_button :status_eq, true
+                      span._c-radio__control
+                    | 解決済み
+                  label
+                    span._c-radio>
+                      = f.radio_button :status_eq, false
+                      span._c-radio__control
+                    | 未解決
+                ._c-row__col._c-row__col--1-1
+                  = f.label :reception_desk_id_eq, "受付案内所"
+                  br
+                    span._c-select data-c="select" aria-selected="false"
+                      = f.collection_select :reception_desk_id_eq, ReceptionDesk.all, :id, :name, :include_blank => true
+                      span._c-select__label data-c="select__label"
+                ._c-row__col._c-row__col--1-1
+                  = f.label :kind_eq, "種別"
+                  br
+                  span._c-select data-c="select" aria-selected="false"
+                    = f.select :kind_eq, LostItem.kinds_i18n.invert.map {|key, value| [key, FoundItem.kinds[value]]}, :include_blank => true
+                    span._c-select__label data-c="select__label"
+                ._c-row__col._c-row__col--1-1
+                  = f.label :characteristic_cont_all, "特徴"
+                  br
+                    = f.search_field :characteristic_cont_all, :class => '_c-form-control'
+                ._c-row__col._c-row__col--1-1
+                  = f.label :note_cont_all, "備考"
+                  br
+                    = f.search_field :note_cont_all, :class => '_c-form-control'
+              ._c-card__action
+                = f.submit '検索', :class => "_c-btn _c-btn--block"
 section._c-section._c-section--bg
   ._c-container
     h2._c-section__title 紛失物一覧
@@ -8,9 +56,6 @@ section._c-section._c-section--bg
           li._c-meta__item #{@lost_items.count}件の紛失物情報が見つかりました。
         - else
           li._c-meta__item 紛失物情報が見つかりませんでした。
-      ul._c-navbar
-        li._c-navbar__item data-c="navbar__item"
-          = link_to '紛失物を登録する', new_lost_item_path
       ._c-row._c-row--margin
         - @lost_items.each do |lost_item|
           ._c-row__col._c-row__col--1-1._c-row__col--md-1-2._c-row__col--lg-1-4
@@ -32,6 +77,3 @@ section._c-section._c-section--bg
                   = link_to 'さらに詳しく', lost_item, :class => '_c-btn _c-btn--block'
                 - else
                   = link_to 'さらに詳しく', lost_item, :class => '_c-btn _c-btn--block _c-btn--danger'
-      ul._c-navbar
-        li._c-navbar__item data-c="navbar__item"
-          = link_to '紛失物を登録する', new_lost_item_path
