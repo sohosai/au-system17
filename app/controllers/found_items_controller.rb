@@ -4,7 +4,18 @@ class FoundItemsController < ApplicationController
 
   # GET /found_items
   def index
-    @found_items = FoundItem.all
+    @found_item = FoundItem.new
+    @search = FoundItem.ransack(params[:q])
+    if params[:q]
+      characteristics = params[:q][:characteristic_cont_all].split(/[\p{blank}\s]+/)
+      params[:q][:characteristic_cont_all] = characteristics if characteristics
+      notes = params[:q][:note_cont_all].split(/[\p{blank}\s]+/)
+      params[:q][:note_cont_all] = notes if notes
+      @search = FoundItem.ransack(params[:q])
+      @found_items = @search.result
+    else
+      @found_items = FoundItem.all
+    end
   end
 
   # GET /found_items/1
@@ -25,7 +36,7 @@ class FoundItemsController < ApplicationController
     @found_item = FoundItem.new(found_item_params)
 
     if @found_item.save
-      redirect_to @found_item, notice: "Found item was successfully created."
+      redirect_to found_items_path, notice: "Found item was successfully created."
     else
       render :new
     end
@@ -46,18 +57,6 @@ class FoundItemsController < ApplicationController
     redirect_to found_items_url, notice: "Found item was successfully destroyed."
   end
 
-  def search
-    @search = FoundItem.ransack(params[:q])
-    if params[:q]
-      characteristics = params[:q][:characteristic_cont_all].split(/[\p{blank}\s]+/)
-      params[:q][:characteristic_cont_all] = characteristics if characteristics
-      notes = params[:q][:note_cont_all].split(/[\p{blank}\s]+/)
-      params[:q][:note_cont_all] = notes if notes
-      @search = FoundItem.ransack(params[:q])
-      @found_items = @search.result
-    end
-  end
-
   private
 
     # Use callbacks to share common setup or constraints between actions.
@@ -71,6 +70,7 @@ class FoundItemsController < ApplicationController
                                          :receptionist_id, :kind,
                                          :location_found, :characteristic,
                                          :finder_name, :finder_contact,
-                                         :note, :status)
+                                         :note, :status,
+                                         :q)
     end
 end
