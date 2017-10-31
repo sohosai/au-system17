@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: au-system17_production
-  username: au-system17
-  password: <%= ENV['AU-SYSTEM17_DATABASE_PASSWORD'] %>
