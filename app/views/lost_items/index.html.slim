@@ -54,6 +54,7 @@ section._c-section._c-section--bg
       ul._c-meta
         - unless @lost_items.count == 0
           li._c-meta__item #{@lost_items.count}件の紛失物情報が見つかりました。
+          li._c-meta__item = link_to "CSVダウンロード", lost_items_path(format: "csv")
         - else
           li._c-meta__item 紛失物情報が見つかりませんでした。
       ._c-row._c-row--margin

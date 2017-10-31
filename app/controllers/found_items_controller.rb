@@ -16,6 +16,13 @@ class FoundItemsController < ApplicationController
     else
       @found_items = FoundItem.all
     end
+
+    respond_to do |format|
+      format.html
+      format.csv do
+        send_data render_to_string, filename: "found_items.csv", type: :csv
+      end
+    end
   end
 
   # GET /found_items/1

@@ -54,6 +54,7 @@ section._c-section
       ul._c-meta
       - unless @found_items.count == 0
         li._c-meta__item #{@found_items.count}件の拾得物情報が見つかりました。
+        li._c-meta__item = link_to "CSVダウンロード", found_items_path(format: "csv")
       - else
         li._c-meta__item 拾得物情報が見つかりませんでした。
       ._c-row._c-row--margin
