@@ -214,7 +214,6 @@ ja:
         resolved_at: 解決時刻
         reception_desk_id: 受付案内所
         receptionist_id: 受付者
-        name: 拾得物名
         kind: 種別
         location_found: 拾得場所
         characteristic: 特徴
@@ -227,7 +226,6 @@ ja:
         resolved_at: 解決時刻
         reception_desk_id: 受付案内所
         receptionist_id: 受付者
-        name: 拾得物名
         kind: 種別
         location_lost: 紛失場所
         characteristic: 特徴
