@@ -52,8 +52,8 @@ section._c-section
     h2._c-section__title 拾得物一覧
     ._c-section__content
       ul._c-meta
-      - unless @found_items.count == 0
-        li._c-meta__item #{@found_items.count}件の拾得物情報が見つかりました。
+      - unless @count == 0
+        li._c-meta__item #{@count}件の拾得物情報が見つかりました。
         li._c-meta__item = link_to "CSVダウンロード", found_items_path(format: "csv")
       - else
         li._c-meta__item 拾得物情報が見つかりませんでした。
@@ -78,3 +78,4 @@ section._c-section
                   = link_to 'さらに詳しく', found_item,:class => '_c-btn _c-btn--block'
                 - else
                   = link_to 'さらに詳しく', found_item,:class => '_c-btn _c-btn--block _c-btn--danger'
+      = paginate @found_items

@@ -7,19 +7,22 @@ class LostItemsController < ApplicationController
     @lost_item = LostItem.new
     @search = LostItem.ransack(params[:q])
     if params[:q]
-      characteristics = params[:q][:characteristic_cont_all].split(/[\p{blank}\s]+/)
+      characteristics = params[:q][:characteristic_cont_all].split(/[\p{blank}\s]+/) unless params[:q][:characteristic_cont_all].nil?
       params[:q][:characteristic_cont_all] = characteristics if characteristics
-      notes = params[:q][:note_cont_all].split(/[\p{blank}\s]+/)
+      notes = params[:q][:note_cont_all].split(/[\p{blank}\s]+/) unless params[:q][:note_cont_all].nil?
       params[:q][:note_cont_all] = notes if notes
       @search = LostItem.ransack(params[:q])
-      @lost_items = @search.result
+      @lost_items = @search.result.order(created_at: :desc).page params[:page]
+      @count = @search.result.count
     else
-      @lost_items = LostItem.all
+      @lost_items = LostItem.order(created_at: :desc).page params[:page]
+      @count = @lost_items.count
     end
 
     respond_to do |format|
       format.html
       format.csv do
+        @lost_items = LostItem.all
         send_data render_to_string, filename: "lost_items.csv", type: :csv
       end
     end

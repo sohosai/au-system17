@@ -52,8 +52,8 @@ section._c-section._c-section--bg
     h2._c-section__title 紛失物一覧
     ._c-section__content
       ul._c-meta
-        - unless @lost_items.count == 0
-          li._c-meta__item #{@lost_items.count}件の紛失物情報が見つかりました。
+        - unless @count == 0
+          li._c-meta__item #{@count}件の紛失物情報が見つかりました。
           li._c-meta__item = link_to "CSVダウンロード", lost_items_path(format: "csv")
         - else
           li._c-meta__item 紛失物情報が見つかりませんでした。
@@ -78,3 +78,4 @@ section._c-section._c-section--bg
                   = link_to 'さらに詳しく', lost_item, :class => '_c-btn _c-btn--block'
                 - else
                   = link_to 'さらに詳しく', lost_item, :class => '_c-btn _c-btn--block _c-btn--danger'
+      = paginate @lost_items
