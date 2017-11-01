@@ -13,10 +13,8 @@ class LostItemsController < ApplicationController
       params[:q][:note_cont_all] = notes if notes
       @search = LostItem.ransack(params[:q])
       @lost_items = @search.result.order(created_at: :desc).page params[:page]
-      @count = @search.result.count
     else
       @lost_items = LostItem.order(created_at: :desc).page params[:page]
-      @count = @lost_items.count
     end
 
     respond_to do |format|

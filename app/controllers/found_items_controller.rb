@@ -13,10 +13,8 @@ class FoundItemsController < ApplicationController
       params[:q][:note_cont_all] = notes if notes
       @search = FoundItem.ransack(params[:q])
       @found_items = @search.result.order(created_at: :desc).page params[:page]
-      @count = @search.result.count
     else
       @found_items = FoundItem.order(created_at: :desc).page params[:page]
-      @count = @found_items.count
     end
 
     respond_to do |format|
