@@ -52,8 +52,8 @@ section._c-section
     h2._c-section__title 拾得物一覧
     ._c-section__content
       ul._c-meta
-      - unless @count == 0
-        li._c-meta__item #{@count}件の拾得物情報が見つかりました。
+      - unless @found_items.total_count == 0
+        li._c-meta__item #{@found_items.total_count}件の拾得物情報が見つかりました。
         li._c-meta__item = link_to "CSVダウンロード", found_items_path(format: "csv")
       - else
         li._c-meta__item 拾得物情報が見つかりませんでした。
