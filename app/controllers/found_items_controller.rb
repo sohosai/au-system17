@@ -7,19 +7,20 @@ class FoundItemsController < ApplicationController
     @found_item = FoundItem.new
     @search = FoundItem.ransack(params[:q])
     if params[:q]
-      characteristics = params[:q][:characteristic_cont_all].split(/[\p{blank}\s]+/)
+      characteristics = params[:q][:characteristic_cont_all].split(/[\p{blank}\s]+/) unless params[:q][:characteristic_cont_all].nil?
       params[:q][:characteristic_cont_all] = characteristics if characteristics
-      notes = params[:q][:note_cont_all].split(/[\p{blank}\s]+/)
+      notes = params[:q][:note_cont_all].split(/[\p{blank}\s]+/) unless params[:q][:note_cont_all].nil?
       params[:q][:note_cont_all] = notes if notes
       @search = FoundItem.ransack(params[:q])
-      @found_items = @search.result
+      @found_items = @search.result.order(created_at: :desc).page params[:page]
     else
-      @found_items = FoundItem.all
+      @found_items = FoundItem.order(created_at: :desc).page params[:page]
     end
 
     respond_to do |format|
       format.html
       format.csv do
+        @found_items = FoundItem.all
         send_data render_to_string, filename: "found_items.csv", type: :csv
       end
     end
