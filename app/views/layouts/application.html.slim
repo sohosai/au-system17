@@ -56,3 +56,10 @@ html lang="ja" data-sticky-footer="true" data-scrolled="true"
 
       = render partial: 'layouts/footer'
   = javascript_include_tag "app.js"
+  script src="https://www.googletagmanager.com/gtag/js?id=UA-109160119-1" async=true
+  javascript:
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-109160119-1');
