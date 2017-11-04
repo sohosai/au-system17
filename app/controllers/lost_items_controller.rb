@@ -77,7 +77,7 @@ class LostItemsController < ApplicationController
       params.require(:lost_item).permit(:resolver_id, :reception_desk_id,
                                         :receptionist_id, :kind,
                                         :location_lost, :characteristic,
-                                        :loser_name, :loser_name,
+                                        :loser_name, :loser_contact,
                                         :note, :status,
                                         :q)
     end
